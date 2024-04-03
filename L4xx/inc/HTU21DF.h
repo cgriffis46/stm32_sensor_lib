@@ -3,11 +3,13 @@
  *
  *  Created on: Mar 20, 2024
  *      Author: coryg
- *	@version 1.0.0
+ *      @version 1.0.0
  */
 
 #ifndef HTU21DF_HTU21DF_H_
 #define HTU21DF_HTU21DF_H_
+
+extern "C"{
 
 #include <stdint.h>
 #include "stm32l4xx_hal.h"
@@ -15,8 +17,6 @@
 #include <stdlib.h>
 #include <math.h>
 #include <string.h>
-
-extern "C"{
 
 /** Default I2C address for the HTU21D. */
 static const uint16_t HTU21DF_I2CADDR = (0x40);
@@ -37,11 +37,11 @@ static const uint16_t HTU21DF_I2CADDR = (0x40);
 #define HTU21DF_RESET (0xFE)
 
 /**
- * Driver for the Adafruit HTU21DF breakout board.
+ * Driver for the HTU21DF sensor
  */
-class Adafruit_HTU21DF {
+class HTU21DF {
 public:
-  Adafruit_HTU21DF(I2C_HandleTypeDef* _hi2c);
+  HTU21DF(I2C_HandleTypeDef* _hi2c);
 
   bool begin(uint8_t devAddress);
   float readTemperature(void);

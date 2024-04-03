@@ -8,6 +8,8 @@
 #ifndef HTU21DF_HTU21DF_H_
 #define HTU21DF_HTU21DF_H_
 
+extern "C"{
+
 #include <stdint.h>
 #include "stm32f4xx_hal.h"
 #include <stdio.h>
@@ -34,11 +36,11 @@ static const uint16_t HTU21DF_I2CADDR = (0x40);
 #define HTU21DF_RESET (0xFE)
 
 /**
- * Driver for the Adafruit HTU21DF breakout board.
+ * Driver for the HTU21DF sensor
  */
-class Adafruit_HTU21DF {
+class HTU21DF {
 public:
-  Adafruit_HTU21DF(I2C_HandleTypeDef* _hi2c);
+  HTU21DF(I2C_HandleTypeDef* _hi2c);
 
   bool begin(uint8_t devAddress);
   float readTemperature(void);
@@ -46,14 +48,12 @@ public:
   void reset(void);
 
 private:
-  //Adafruit_I2CDevice *i2c_dev = NULL; ///< Pointer to I2C bus interface
   float _last_humidity, _last_temp;
 protected:
-  //i2c_inst_t i2c;
   uint8_t devAddress = HTU21DF_I2CADDR;
   I2C_HandleTypeDef * hi2c;
 };
 
-
+}
 
 #endif /* HTU21DF_HTU21DF_H_ */

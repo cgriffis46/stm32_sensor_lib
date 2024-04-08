@@ -4,6 +4,35 @@
  *  Created on: Mar 20, 2024
  *      Author: coryg
  *      @version 1.0.0
+ *
+ *      This is a redistribution of Adafruit's fine HTU21DF library, ported for STM32.
+ */
+
+/*!
+ * @file Adafruit_HTU21DF.cpp
+ *
+ * @mainpage Adafruit HTU21DF Sensor
+ *
+ * @section intro_sec Introduction
+ *
+ * This is a library for the HTU21DF Humidity & Temp Sensor
+ *
+ * Designed specifically to work with the HTU21DF sensor from Adafruit
+ * ----> https://www.adafruit.com/products/1899
+ *
+ * These displays use I2C to communicate, 2 pins are required to
+ * interface
+ * Adafruit invests time and resources providing this open source code,
+ * please support Adafruit and open-source hardware by purchasing
+ * products from Adafruit!
+ *
+ * @section author Author
+ *
+ * Written by Limor Fried/Ladyada for Adafruit Industries.
+ *
+ * @section license License
+ *
+ * BSD license, all text above must be included in any redistribution
  */
 
 #ifndef HTU21DF_HTU21DF_H_

@@ -20,6 +20,8 @@
 	#error "USE_HAL_UART_REGISTER_CALLBACKS Must be set to 1U in stm32lxx_hal_conf.h"
 #endif
 
+#define DEFAULT_TIMEOUT osWaitForever
+
 extern "C" {
 
 /**! Structure holding Plantower's standard packet **/
@@ -52,11 +54,13 @@ public:
 	bool getData(PM25_AQI_Data *_data); // copy PM25 data to user structure
 	bool crc8(); // perform CRC8 check
 	void setDataReadyCallback(void (*_funcptr)(void));
+	void setTimeout(uint32_t _timeout);
 	UART_HandleTypeDef* getPm25Uart(); // function to get the UART definition
 	osMessageQueueId_t getPm25DataQueue(); // function to get OS Message Queue
 	osThreadId_t getPM25TaskHandle();
 	PM25_AQI_Data data, *dataPtr; // AQI data
 	void (*funcPtr)(void);
+	uint32_t timeout;
 protected:
 private:
 	osMessageQueueId_t dataQueue; // OS Message Queue to buffer PM25 data

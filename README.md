@@ -18,3 +18,6 @@ Under C/C++ General->Paths and Symbols->Includes, add the path to the inc folder
 Click "Apply and Close"
 
 The STM32 Sensor libraries should be available for your project.
+
+Change Log:
+	2024-4-18 - Added xPM25 library as a FreeRTOS version of the PM25 driver. 

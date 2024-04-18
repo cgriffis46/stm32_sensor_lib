@@ -54,13 +54,11 @@ public:
 	bool getData(PM25_AQI_Data *_data); // copy PM25 data to user structure
 	bool crc8(); // perform CRC8 check
 	void setDataReadyCallback(void (*_funcptr)(void));
-	void setTimeout(uint32_t _timeout);
 	UART_HandleTypeDef* getPm25Uart(); // function to get the UART definition
 	osMessageQueueId_t getPm25DataQueue(); // function to get OS Message Queue
 	osThreadId_t getPM25TaskHandle();
 	PM25_AQI_Data data, *dataPtr; // AQI data
 	void (*funcPtr)(void);
-	uint32_t timeout;
 	osEventFlagsId_t ef_id;
 protected:
 private:

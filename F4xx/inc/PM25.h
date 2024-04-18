@@ -1,6 +1,6 @@
 /*
  * PM25.h
- *
+ *	@version 1.0.2
  *  Created on: Mar 26, 2024
  *      Author: coryg
  *
@@ -15,7 +15,7 @@
 #include <stdint.h>
 
 #if (USE_HAL_UART_REGISTER_CALLBACKS!=1U)
-	#error "USE_HAL_UART_REGISTER_CALLBACKS Must be set to 1U in stm32lxx_hal_conf.h"
+	#error "USE_HAL_UART_REGISTER_CALLBACKS Must be set to 1U in stm32fxx_hal_conf.h"
 #endif
 
 extern "C"{
@@ -55,6 +55,8 @@ public:
 	UART_HandleTypeDef* getPm25Uart(); // for interrupt function to get the UART definition
 	PM25_AQI_Data data,*dataPtr;
 	bool crc8();
+	void setDataReadyCallback(void (*_funcptr)(void));
+	void (*funcPtr)(void);
 protected:
 	UART_HandleTypeDef *huart; // pointer to the UART
     bool _newdata=false;

@@ -54,6 +54,7 @@ public:
 	void setDataReadyCallback(void (*_funcptr)(void));
 	UART_HandleTypeDef* getPm25Uart(); // function to get the UART definition
 	osMessageQueueId_t getPm25DataQueue(); // function to get OS Message Queue
+	osThreadId_t getPM25TaskHandle();
 	PM25_AQI_Data data, *dataPtr; // AQI data
 	void (*funcPtr)(void);
 protected:

@@ -20,7 +20,7 @@
 	#error "USE_HAL_UART_REGISTER_CALLBACKS Must be set to 1U in stm32lxx_hal_conf.h"
 #endif
 
-#define DEFAULT_TIMEOUT osWaitForever
+#define DEFAULT_TIMEOUT 100
 
 extern "C" {
 
@@ -61,6 +61,7 @@ public:
 	PM25_AQI_Data data, *dataPtr; // AQI data
 	void (*funcPtr)(void);
 	uint32_t timeout;
+	osEventFlagsId_t ef_id;
 protected:
 private:
 	osMessageQueueId_t dataQueue; // OS Message Queue to buffer PM25 data

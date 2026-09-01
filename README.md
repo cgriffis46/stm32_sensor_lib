@@ -23,5 +23,5 @@ Change Log:
 	2024-4-24 - added example for xPM25 library. 
 	2024-4-23 - ported driver for adafruit lsm303dlhc compass/accelerometer breakout 
 	2024-4-18 - Added xPM25 library as a FreeRTOS version of the PM25 driver. 
-	
+	2026-9-1 - replaced SHT31 driver with non-blocking version and uploaded Source folder. 
 	
